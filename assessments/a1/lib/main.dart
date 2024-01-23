@@ -30,24 +30,21 @@ class MyApp extends StatelessWidget {
         body: const Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           mainAxisSize: MainAxisSize.max,
-          children: <Widget>[
+          children: [
             //TODO: Put your code here to complete this app.
             Column(
-              children: <Widget>[Container1(), Container2()],
+              children: [Container1(), Container2()],
             ),
             Column(
-              children: <Widget>[Container3(),Container4()],
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: [Container3(), Container4()],
             ),
             Column(
+              mainAxisAlignment: MainAxisAlignment.end,
               children: [
-                Align(
-                  alignment: Alignment.center,
-                  child: Container5(),
-                ),
-                Align(
-                  alignment: Alignment.bottomCenter,
-                  child: Container6(),
-                ),
+                Container5(),
+                SizedBox(height: 245.0),
+                Container6(),
               ],
             ),
           ],
@@ -95,7 +92,7 @@ class Container2 extends StatelessWidget {
         decoration: const BoxDecoration(
           color: Colors.white,
         ),
-        child:const Center(
+        child: const Center(
           child: Text(
             'Container 2',
           ),
@@ -113,19 +110,19 @@ class Container3 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.all(10.00),
       height: 400.0,
       width: 100.0,
       alignment: Alignment.bottomCenter,
-      decoration:const BoxDecoration(
+      decoration: const BoxDecoration(
         color: Colors.yellow,
       ),
-        child: const Text(
-          'Container 3',
-        ),
+      child: const Text(
+        'Container 3',
+      ),
     );
   }
 }
+
 class Container4 extends StatelessWidget {
   const Container4({
     super.key,
@@ -137,16 +134,17 @@ class Container4 extends StatelessWidget {
       alignment: Alignment.centerRight,
       height: 380.0,
       width: 100.0,
-      decoration:const BoxDecoration(
+      decoration: const BoxDecoration(
         color: Colors.blue,
       ),
-        child: const Text(
-          'Container 4',
-          textAlign: TextAlign.right,
-        ),
+      child: const Text(
+        'Container 4',
+        textAlign: TextAlign.right,
+      ),
     );
   }
 }
+
 class Container5 extends StatelessWidget {
   const Container5({
     super.key,
@@ -170,6 +168,7 @@ class Container5 extends StatelessWidget {
     );
   }
 }
+
 class Container6 extends StatelessWidget {
   const Container6({
     super.key,
@@ -181,15 +180,15 @@ class Container6 extends StatelessWidget {
       alignment: Alignment.topLeft,
       height: 200.0,
       width: 100.0,
-      decoration:const BoxDecoration(
+      decoration: const BoxDecoration(
         color: Colors.red,
       ),
       child: const Text(
-          'Con 6',
-          style: TextStyle(
-            fontSize: 30.0, // Adjust the font size as needed
-          ),
+        'Con 6',
+        style: TextStyle(
+          fontSize: 30.0,
         ),
+      ),
     );
   }
 }
