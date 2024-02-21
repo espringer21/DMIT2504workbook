@@ -95,6 +95,7 @@ class MyFirstPageState extends State<MyFirstPage> {
                   // snackbar with the "firstName" if validation
                   // is satisfied.
                   TextFormField(
+                    
                     controller: textEditingController,
                     validator: (input) {
                       return input?.isEmpty ?? true
@@ -106,6 +107,7 @@ class MyFirstPageState extends State<MyFirstPage> {
                     },
                     maxLength: 10,
                     decoration: const InputDecoration(
+                      helperText:'min 1, max 10' ,
                       icon: Icon(Icons.hourglass_top),
                       labelText: 'fistName',
                       suffixIcon: Icon(
