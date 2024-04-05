@@ -1,4 +1,4 @@
-import 'package:cineswipe/movie_constants.dart';
+import 'package:cineswipe/models/constants.dart';
 import 'package:cineswipe/models/movie.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';

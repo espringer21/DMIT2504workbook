@@ -1,6 +1,7 @@
 import 'package:cineswipe/api/movie_api.dart';
 import 'package:cineswipe/models/movie.dart';
 import 'package:cineswipe/widgets/movieslider.dart';
+import 'package:cineswipe/widgets/Navbar.dart';
 import 'package:cineswipe/widgets/trendingmovies.dart';
 import 'package:flutter/material.dart';
 
@@ -27,11 +28,15 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        automaticallyImplyLeading: false,
         backgroundColor: Colors.transparent,
         elevation: 0,
         title: const Text(
           'CineSwipe',
-          style: TextStyle(fontSize: 32, color: Colors.amberAccent),
+          style: TextStyle(
+              fontSize: 30,
+              color: Colors.amberAccent,
+              fontStyle: FontStyle.italic),
         ),
       ),
       body: SingleChildScrollView(
@@ -46,6 +51,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 'Trending Movies',
                 style: TextStyle(fontSize: 25),
               ),
+              const SizedBox(height: 15),
               SizedBox(
                 child: FutureBuilder(
                   future: trendingMovies,
@@ -69,6 +75,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 'Top Rated Movies',
                 style: TextStyle(fontSize: 25),
               ),
+              const SizedBox(height: 15),
               SizedBox(
                 child: FutureBuilder(
                   future: topRatedMovies,
@@ -94,6 +101,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 'Upcoming Movies',
                 style: TextStyle(fontSize: 25),
               ),
+              const SizedBox(height: 15),
               SizedBox(
                 child: FutureBuilder(
                   future: upcomingMovies,
@@ -116,6 +124,7 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
         ),
       ),
+      bottomNavigationBar: const NavBar(),
     );
   }
 }

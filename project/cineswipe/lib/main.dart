@@ -1,4 +1,4 @@
-import 'package:cineswipe/homescreen.dart';
+import 'package:cineswipe/screens/home_screen.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -15,7 +15,6 @@ class MyApp extends StatelessWidget {
       title: 'CineSwipe',
       theme: ThemeData.dark().copyWith(
         scaffoldBackgroundColor: const Color(0xFF23272E),
-        
       ),
       home: const HomeScreen(),
     );
