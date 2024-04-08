@@ -86,20 +86,20 @@ class MovieDetails extends StatelessWidget {
                       Container(
                         padding: const EdgeInsets.all(8),
                         decoration: BoxDecoration(
-                          border: Border.all(color: Colors.white),
+                          border: Border.all(color: Colors.amberAccent),
                           borderRadius: BorderRadius.circular(10),
                         ),
                         child: Row(children: [
                           Text(
                             'Release date: ' '${movie.releaseDate}',
-                            style: TextStyle(color: Colors.amberAccent),
+                            style: const TextStyle(color: Colors.amberAccent),
                           )
                         ]),
                       ),
                       Container(
                         padding: const EdgeInsets.all(8),
                         decoration: BoxDecoration(
-                          border: Border.all(color: Colors.white),
+                          border: Border.all(color: Colors.amberAccent),
                           borderRadius: BorderRadius.circular(10),
                         ),
                         child: Row(children: [

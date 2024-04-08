@@ -1,7 +1,6 @@
-import 'package:cineswipe/api/movie_api.dart';
+import 'package:cineswipe/api/api.dart';
 import 'package:cineswipe/models/movie.dart';
 import 'package:cineswipe/widgets/movieslider.dart';
-import 'package:cineswipe/widgets/Navbar.dart';
 import 'package:cineswipe/widgets/trendingmovies.dart';
 import 'package:flutter/material.dart';
 
@@ -19,9 +18,9 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   void initState() {
     super.initState();
-    trendingMovies = Api().getTrendingMovies();
-    topRatedMovies = Api().getTopRatedMovies();
-    upcomingMovies = Api().getUpcomingMovies();
+    trendingMovies = MovieApi().getTrendingMovies();
+    topRatedMovies = MovieApi().getTopRatedMovies();
+    upcomingMovies = MovieApi().getUpcomingMovies();
   }
 
   @override
@@ -124,7 +123,6 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
         ),
       ),
-      bottomNavigationBar: const NavBar(),
     );
   }
 }

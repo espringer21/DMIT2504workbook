@@ -1,4 +1,3 @@
-import 'package:cineswipe/widgets/Navbar.dart';
 import 'package:flutter/material.dart';
 
 
@@ -7,8 +6,8 @@ class FavouriteMovieList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      bottomNavigationBar: const NavBar(),
+    return const Scaffold(
+      body:  Text('where'),
     );
   }
 }
