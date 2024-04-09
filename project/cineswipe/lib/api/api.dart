@@ -1,4 +1,4 @@
-import 'package:cineswipe/models/user_location_provider.dart';
+import 'package:cineswipe/models/location_provider.dart';
 import 'package:cineswipe/models/constants.dart';
 import 'package:cineswipe/models/movie.dart';
 import 'package:cineswipe/models/place_detail.dart';
@@ -68,7 +68,7 @@ class GooglePlacesAPI {
 }
 //fetch list of place predictions based on users text input
 Future<List<Predicition>> fetchPredictions(String input) async {
-  UserPositionDataSource positionSource = UserPositionDataSource();
+  UserPosition positionSource = UserPosition();
   Position pos = await positionSource.getUserPosition();
 
   final url = Uri.parse('${Constants.googleMapsbaseURL}/autocomplete/json?').replace(queryParameters: {
