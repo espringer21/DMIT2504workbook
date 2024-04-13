@@ -1,34 +1,79 @@
 import 'package:cineswipe/models/constants.dart';
 import 'package:cineswipe/models/movie.dart';
 import 'package:flutter/material.dart';
+import 'package:line_icons/line_icons.dart';
 
-class MovieDetails extends StatelessWidget {
-  const MovieDetails({super.key, required this.movie});
+class MovieDetails extends StatefulWidget {
+  const MovieDetails({Key? key, required this.movie}) : super(key: key);
 
   final Movie movie;
+
+  @override
+  _MovieDetailsState createState() => _MovieDetailsState();
+}
+
+class _MovieDetailsState extends State<MovieDetails> {
+  bool isFavorite = false;
+  List<Movie> favoriteMovies = [];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: CustomScrollView(
         slivers: [
           SliverAppBar.large(
-            leading: Container(
-              height: 70,
-              width: 70,
-              margin: const EdgeInsets.only(
-                top: 16,
-                left: 16,
-              ),
-              decoration: BoxDecoration(
-                color: const Color(0xFF23272E),
-                borderRadius: BorderRadius.circular(8),
-              ),
-              child: IconButton(
-                onPressed: () {
-                  Navigator.pop(context);
-                },
-                icon: const Icon(Icons.arrow_back),
-              ),
+            leading: Row(              
+              children: [
+                Container(
+                  margin: const EdgeInsets.only(
+                    top: 16,
+                    left: 16,
+                    right: 8, // Add right margin to create space
+                  ),
+                  decoration: BoxDecoration(
+                    color: const Color(0xFF23272E),
+                    borderRadius: BorderRadius.circular(8),
+                  ),
+                  child: IconButton(
+                    padding:
+                        const EdgeInsets.all(8), // Add padding to create space
+                    onPressed: () {
+                      Navigator.pop(context);
+                    },
+                    icon: const Icon(Icons.arrow_back),
+                  ),
+                ),
+                Container(
+                  margin: const EdgeInsets.only(
+                    top: 16,
+                    left: 8, // Add left margin to create space
+                    right: 16,
+                  ),
+                  decoration: BoxDecoration(
+                    color: const Color(0xFF23272E),
+                    borderRadius: BorderRadius.circular(8),
+                  ),
+                  child: IconButton(
+                    padding:
+                        const EdgeInsets.all(8), // Add padding to create space
+                    onPressed: () {
+                      print('like pressed');
+                      setState(() {
+                        isFavorite = !isFavorite;
+                        if (isFavorite) {
+                          favoriteMovies.add(widget.movie);
+                        } else {
+                          favoriteMovies.remove(widget.movie);
+                        }
+                      });
+                    },
+                    icon: Icon(
+                      LineIcons.heart,
+                      color: isFavorite ? Colors.red : null,
+                    ),
+                  ),
+                ),
+              ],
             ),
             backgroundColor: const Color(0xFF23272E),
             expandedHeight: 500,
@@ -41,7 +86,7 @@ class MovieDetails extends StatelessWidget {
                   bottomRight: Radius.circular(24),
                 ),
                 child: Image.network(
-                  '${Constants.imagePath}${movie.backDropPath}',
+                  '${Constants.imagePath}${widget.movie.backDropPath}',
                   filterQuality: FilterQuality.high,
                   fit: BoxFit.fill,
                 ),
@@ -54,7 +99,7 @@ class MovieDetails extends StatelessWidget {
               child: Column(
                 children: [
                   Text(
-                    movie.title,
+                    widget.movie.title,
                     textAlign: TextAlign.center,
                     style: const TextStyle(
                       fontSize: 50,
@@ -71,7 +116,7 @@ class MovieDetails extends StatelessWidget {
                     height: 15,
                   ),
                   Text(
-                    movie.overview,
+                    widget.movie.overview,
                     style: const TextStyle(
                       fontSize: 20,
                     ),
@@ -81,35 +126,38 @@ class MovieDetails extends StatelessWidget {
                   ),
                   SizedBox(
                     child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                      Container(
-                        padding: const EdgeInsets.all(8),
-                        decoration: BoxDecoration(
-                          border: Border.all(color: Colors.amberAccent),
-                          borderRadius: BorderRadius.circular(10),
-                        ),
-                        child: Row(children: [
-                          Text(
-                            'Release date: ' '${movie.releaseDate}',
-                            style: const TextStyle(color: Colors.amberAccent),
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Container(
+                            padding: const EdgeInsets.all(8),
+                            decoration: BoxDecoration(
+                              border: Border.all(color: Colors.amberAccent),
+                              borderRadius: BorderRadius.circular(10),
+                            ),
+                            child: Row(children: [
+                              Text(
+                                'Release date: ' '${widget.movie.releaseDate}',
+                                style:
+                                    const TextStyle(color: Colors.amberAccent),
+                              )
+                            ]),
+                          ),
+                          Container(
+                            padding: const EdgeInsets.all(8),
+                            decoration: BoxDecoration(
+                              border: Border.all(color: Colors.amberAccent),
+                              borderRadius: BorderRadius.circular(10),
+                            ),
+                            child: Row(children: [
+                              Text(
+                                'Rating: '
+                                '${widget.movie.voteAverage.toStringAsFixed(1)}/10',
+                                style:
+                                    const TextStyle(color: Colors.amberAccent),
+                              )
+                            ]),
                           )
                         ]),
-                      ),
-                      Container(
-                        padding: const EdgeInsets.all(8),
-                        decoration: BoxDecoration(
-                          border: Border.all(color: Colors.amberAccent),
-                          borderRadius: BorderRadius.circular(10),
-                        ),
-                        child: Row(children: [
-                          Text(
-                            'Rating: ' '${movie.voteAverage.toStringAsFixed(1)}/10',
-                            style: const TextStyle(color: Colors.amberAccent),
-                          )
-                        ]),
-                      )
-                    ]),
                   ),
                 ],
               ),
