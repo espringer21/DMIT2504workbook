@@ -2,7 +2,7 @@ import 'package:cineswipe/models/location_provider.dart';
 import 'package:cineswipe/models/constants.dart';
 import 'package:cineswipe/models/movie.dart';
 import 'package:cineswipe/models/place_detail.dart';
-import 'package:cineswipe/models/prediction.dart';
+import 'package:cineswipe/models/searchpredicition.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';

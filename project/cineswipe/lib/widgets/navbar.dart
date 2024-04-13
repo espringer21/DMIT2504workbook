@@ -1,10 +1,8 @@
 
 import 'package:cineswipe/screens/theater_location.dart';
-import 'package:cineswipe/screens/favourite_screen.dart';
 import 'package:cineswipe/screens/home_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
-import 'package:line_icons/line_icons.dart';
 
 class MovieNavBar extends StatefulWidget {
   const MovieNavBar({super.key});
@@ -18,7 +16,6 @@ class _NavBarState extends State<MovieNavBar> {
 
   final List<Widget> _screens = [
     const HomeScreen(),
-    const FavouriteMovieList(),
     const TheaterLocation(),
   ];
 
@@ -49,10 +46,6 @@ class _NavBarState extends State<MovieNavBar> {
             GButton(
               icon: Icons.home,
               text: 'Home',
-            ),
-            GButton(
-              icon: LineIcons.heart,
-              text: 'Likes',
             ),
             GButton(
               icon: Icons.map,

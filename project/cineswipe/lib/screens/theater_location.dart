@@ -3,7 +3,7 @@ import 'package:cineswipe/models/location_provider.dart';
 import 'package:cineswipe/widgets/searchbar.dart';
 import 'package:cineswipe/widgets/custom_marker.dart';
 import 'package:cineswipe/models/place_detail.dart';
-import 'package:cineswipe/models/prediction.dart';
+import 'package:cineswipe/models/searchpredicition.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart' as riverpod;
 import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';

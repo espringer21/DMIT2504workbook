@@ -1,7 +1,6 @@
 import 'package:cineswipe/models/constants.dart';
 import 'package:cineswipe/models/movie.dart';
 import 'package:flutter/material.dart';
-import 'package:line_icons/line_icons.dart';
 
 class MovieDetails extends StatefulWidget {
   const MovieDetails({Key? key, required this.movie}) : super(key: key);
@@ -22,59 +21,24 @@ class _MovieDetailsState extends State<MovieDetails> {
       body: CustomScrollView(
         slivers: [
           SliverAppBar.large(
-            leading: Row(              
-              children: [
-                Container(
+            leading: Container(
+              height: 70,
+              width: 70,
                   margin: const EdgeInsets.only(
                     top: 16,
                     left: 16,
-                    right: 8, // Add right margin to create space
                   ),
                   decoration: BoxDecoration(
                     color: const Color(0xFF23272E),
                     borderRadius: BorderRadius.circular(8),
                   ),
                   child: IconButton(
-                    padding:
-                        const EdgeInsets.all(8), // Add padding to create space
                     onPressed: () {
                       Navigator.pop(context);
                     },
                     icon: const Icon(Icons.arrow_back),
                   ),
                 ),
-                Container(
-                  margin: const EdgeInsets.only(
-                    top: 16,
-                    left: 8, // Add left margin to create space
-                    right: 16,
-                  ),
-                  decoration: BoxDecoration(
-                    color: const Color(0xFF23272E),
-                    borderRadius: BorderRadius.circular(8),
-                  ),
-                  child: IconButton(
-                    padding:
-                        const EdgeInsets.all(8), // Add padding to create space
-                    onPressed: () {
-                      print('like pressed');
-                      setState(() {
-                        isFavorite = !isFavorite;
-                        if (isFavorite) {
-                          favoriteMovies.add(widget.movie);
-                        } else {
-                          favoriteMovies.remove(widget.movie);
-                        }
-                      });
-                    },
-                    icon: Icon(
-                      LineIcons.heart,
-                      color: isFavorite ? Colors.red : null,
-                    ),
-                  ),
-                ),
-              ],
-            ),
             backgroundColor: const Color(0xFF23272E),
             expandedHeight: 500,
             pinned: true,

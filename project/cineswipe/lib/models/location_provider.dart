@@ -1,5 +1,5 @@
 import 'package:cineswipe/api/api.dart';
-import 'package:cineswipe/models/prediction.dart';
+import 'package:cineswipe/models/searchpredicition.dart';
 import 'package:cineswipe/models/user_location.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:geolocator/geolocator.dart';
